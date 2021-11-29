@@ -33,7 +33,6 @@ class Data {
 
   });
 
-  get e => null;
 
 
 // factory Data.fromJson(Map<String, dynamic> json) {
