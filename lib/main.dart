@@ -118,13 +118,14 @@ class _MyAppState extends State<MyData> {
                                                 }
                                               },
                                               child: Padding(
-                                                padding: const EdgeInsets.all(8.0),
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
                                                 child: Text(
                                                   tableCells(index, data[i]),
                                                   style: const TextStyle(
                                                     color: Colors.blue,
-                                                    decoration:
-                                                        TextDecoration.underline,
+                                                    decoration: TextDecoration
+                                                        .underline,
                                                   ),
                                                 ),
                                               ),
@@ -145,21 +146,27 @@ class _MyAppState extends State<MyData> {
                                                     });
                                                   },
                                                   child: Padding(
-                                                    padding: const EdgeInsets.all(8.0),
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            8.0),
                                                     child: Text(
-                                                      tableCells(index, data[i]),
+                                                      tableCells(
+                                                          index, data[i]),
                                                       style: const TextStyle(
                                                         color: Colors.blue,
-                                                        decoration: TextDecoration.underline,
+                                                        decoration:
+                                                            TextDecoration
+                                                                .underline,
                                                       ),
                                                     ),
                                                   ),
                                                 )
                                               : Padding(
-                                                padding: const EdgeInsets.all(8.0),
-                                                child: Text(
-                                                    tableCells(index, data[i])),
-                                              ),
+                                                  padding:
+                                                      const EdgeInsets.all(8.0),
+                                                  child: Text(tableCells(
+                                                      index, data[i])),
+                                                ),
                                 ),
                               );
                             }),
