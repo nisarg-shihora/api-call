@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:apicall/database/database_helper.dart';
 import 'package:email_launcher/email_launcher.dart';
 import 'package:flutter/material.dart';
 import "package:http/http.dart" as http;
@@ -10,8 +11,6 @@ import 'api/data.dart';
 void main() {
   runApp(const MyApp());
 }
-
-
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -38,7 +37,7 @@ class MyData extends StatefulWidget {
 
 class _MyAppState extends State<MyData> {
   // Future<List<Data>>? futureData;
-
+  AppDatabase dataObject = AppDatabase();
   List<Data> data = [];
   List<String> titleList = [
     'id',
@@ -68,6 +67,12 @@ class _MyAppState extends State<MyData> {
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Flutter ListView'),
+          leading: GestureDetector(
+            onTap: () {
+              dataObject.getAllItems();
+            },
+            child: Icon(Icons.add),
+          ),
         ),
         body: FutureBuilder(
           // future: fetchData(),
@@ -359,7 +364,8 @@ class _MyAppState extends State<MyData> {
           shopUrl: jsonResponse['data']['data'][i]['shop_url'],
           categories: jsonResponse['data']['data'][i]['categories'][0]['name'],
         ));
-        // print(i);
+        dataObject.insertStudent(data[i]);
+        print(i);
       }
       // return data;
       // return jsonResponse.map((data) => Data.fromJson(data)).toList();

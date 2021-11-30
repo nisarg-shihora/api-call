@@ -8,12 +8,12 @@ class Data {
   final String? phoneNumber;
   final bool? showEmail;
   final String? address;
+
   // final String? location;
   final String? banner;
   final int? bannerId;
   final String? shopUrl;
   final String? categories;
-
 
   Data({
     required this.id,
@@ -30,18 +30,36 @@ class Data {
     this.bannerId,
     this.shopUrl,
     this.categories,
-
   });
 
+  factory Data.fromJson(Map<String, dynamic> json) {
+    return Data(
+      id: json['id'],
+      storeName: json['storeName'],
+      firstName: json['firstName'],
+      lastName: json['lastName'],
+      email: json['email'],
+      social: json['social'],
+      phoneNumber: json['phone'],
+      address: json['address'],
+      banner: json['banner'],
+      bannerId: json['banner_id'],
+    );
+  }
 
-
-// factory Data.fromJson(Map<String, dynamic> json) {
-//   return Data(
-//
-//     id: json['data']['data']['id'],
-//     storeName: json['data']['data']['store_name'],
-//     firstName: json['data']['data']['first_name'],
-//     lastName: json['data']['data']['last_name'],
-//   );
-// }
+  Map<String, dynamic> toJson() {
+    return {
+      "id": id,
+      "storeName": storeName,
+      "firstName": firstName,
+      "lastName": lastName,
+      "email": email,
+      "social": social,
+      "phoneNumber": phoneNumber,
+      "address": address,
+      "banner": banner,
+      "shopUrl": shopUrl,
+      "categories": categories,
+    };
+  }
 }
