@@ -1,3 +1,5 @@
+import 'package:apicall/database/database_helper.dart';
+
 class Data {
   final int id;
   final String storeName;
@@ -33,33 +35,37 @@ class Data {
   });
 
   factory Data.fromJson(Map<String, dynamic> json) {
-    return Data(
-      id: json['id'],
-      storeName: json['storeName'],
-      firstName: json['firstName'],
-      lastName: json['lastName'],
-      email: json['email'],
-      social: json['social'],
-      phoneNumber: json['phone'],
-      address: json['address'],
-      banner: json['banner'],
-      bannerId: json['banner_id'],
-    );
-  }
+      return Data(
+        id: json[AppDatabase.colId] ?? "",
+        storeName: json[AppDatabase.colStoreName] ?? "",
+        firstName: json[AppDatabase.colFirstName] ?? "",
+        lastName: json[AppDatabase.colLastName] ?? "",
+        email: json[AppDatabase.colEmail] ?? "",
+        social: json[AppDatabase.colSocial] ?? "",
+        phoneNumber: json[AppDatabase.colPhoneNumber] ?? "",
+        address: json[AppDatabase.colAddress] ?? "",
+        banner: json[AppDatabase.colBanner] ?? "",
+        bannerId: json[AppDatabase.colBannerId],
+        shopUrl: json[AppDatabase.colShopUrl],
+        categories: json[AppDatabase.colCategories],
+      );
+    }
+
 
   Map<String, dynamic> toJson() {
     return {
-      "id": id,
-      "storeName": storeName,
-      "firstName": firstName,
-      "lastName": lastName,
-      "email": email,
-      "social": social,
-      "phoneNumber": phoneNumber,
-      "address": address,
-      "banner": banner,
-      "shopUrl": shopUrl,
-      "categories": categories,
+      AppDatabase.colId : id,
+      AppDatabase.colStoreName : storeName,
+      AppDatabase.colFirstName : firstName,
+      AppDatabase.colLastName : lastName,
+      AppDatabase.colEmail : email,
+      AppDatabase.colSocial : social,
+      AppDatabase.colPhoneNumber : phoneNumber,
+      AppDatabase.colAddress: address,
+      AppDatabase.colBanner : banner,
+      AppDatabase.colBannerId : bannerId,
+      AppDatabase.colShopUrl : shopUrl,
+      AppDatabase.colCategories : categories,
     };
   }
 }
